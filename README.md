@@ -1,32 +1,42 @@
-# 📊 Sensor Data Logger & Visualization (Python)
+# 📡 Real-Time Sensor Data Monitoring System using MQTT
 
 ## 🚀 Overview
 
-This project simulates real-time sensor data (temperature and humidity), logs the data into a file, and visualizes it using a single graph.
-
-It demonstrates a simple end-to-end data pipeline:
-
-* Data Generation
-* Data Logging
-* Data Visualization
+This project simulates a real-time IoT system for monitoring temperature and humidity using the MQTT protocol. It demonstrates how data flows from a publisher to a subscriber through a broker and is visualized live.
 
 ---
 
-## 🧠 Features
+## 🧠 System Architecture
 
-* 🌡️ Simulates temperature data with random variation
-* 💧 Simulates humidity data with random variation
-* 📝 Logs data into a `.log` file
-* 📊 Plots both temperature and humidity on a **single graph**
-* ⏱️ Time-based data tracking
+```
+Sensor Simulator (Publisher)
+        ↓
+   MQTT Broker (Mosquitto)
+        ↓
+Subscriber (Python)
+        ↓
+Live Graph (Matplotlib)
+```
+
+---
+
+## ✨ Features
+
+* 📡 MQTT-based communication using Mosquitto
+* 🔄 Real-time data streaming
+* 🌡️ Simulated temperature data
+* 💧 Simulated humidity data
+* 📊 Live plotting using Matplotlib
+* 🧠 Publisher–Subscriber architecture
 
 ---
 
 ## 🛠️ Technologies Used
 
 * Python
+* Paho-MQTT
+* Mosquitto MQTT Broker
 * Matplotlib
-* File Handling
 
 ---
 
@@ -34,63 +44,81 @@ It demonstrates a simple end-to-end data pipeline:
 
 ```
 sensor_logger/
-│── sensor_simulator.py   # Generates and logs sensor data
-│── plot_data.py          # Reads log file and plots graph
-│── sensor.log            # Generated data file
+│── sensor_simulator.py   # MQTT Publisher (generates sensor data)
+│── subscriber.py         # MQTT Subscriber (plots live graph)
+│── plot_data.py          # (Optional) Old file-based plotting
 │── README.md
+│── .gitignore
 ```
 
 ---
 
-## ▶️ How to Run
+## ⚙️ Setup Instructions
 
-### 1️⃣ Run the simulator
+### 1️⃣ Install Dependencies
 
+```bash
+py -m pip install paho-mqtt matplotlib
 ```
+
+---
+
+### 2️⃣ Install Mosquitto
+
+Download from:
+👉 https://mosquitto.org/download/
+
+---
+
+### 3️⃣ Start MQTT Broker
+
+```bash
+mosquitto
+```
+
+---
+
+### 4️⃣ Run Subscriber (Graph)
+
+```bash
+py subscriber.py
+```
+
+---
+
+### 5️⃣ Run Publisher (Sensor Data)
+
+```bash
 py sensor_simulator.py
 ```
-
-This will generate sensor data and store it in `sensor.log`.
-
----
-
-### 2️⃣ Plot the data
-
-```
-py plot_data.py
-```
-
-This will display a graph with:
-
-* Temperature (°C)
-* Humidity (%)
 
 ---
 
 ## 📊 Output
 
-The output is a **single graph** showing both:
+* Live graph displaying:
 
-* Temperature variation over time
-* Humidity variation over time
+  * Temperature vs Time
+  * Humidity vs Time
+* Real-time updates using MQTT communication
 
 ---
 
-## 💡 Example Use Cases
+## 💼 Applications
 
-* IoT data simulation
-* Sensor data analysis
-* Basic data visualization projects
-* Learning file handling and plotting in Python
+* IoT monitoring systems
+* Smart home automation
+* Industrial sensor monitoring
+* Real-time data visualization
 
 ---
 
 ## 🔮 Future Improvements
 
-* Real-time plotting
-* Threshold-based alerts
-* GUI dashboard (Streamlit)
-* Integration with actual sensors
+* 🚨 Threshold-based alerts
+* 📁 Data storage and logging
+* 🌐 Web dashboard (Streamlit)
+* 📡 Integration with real hardware (ESP32)
 
 ---
 

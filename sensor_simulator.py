@@ -1,14 +1,20 @@
+import paho.mqtt.client as mqtt
 import time
 import random
 
-LOG_FILE = "sensor.log"
+client = mqtt.Client()
+client.connect("localhost", 1883, 60)
 
-with open(LOG_FILE, "a") as f:
-    for t in range(100):
-        temperature = 25 + random.uniform(-2, 2)
-        humidity = 60 + random.uniform(-5, 5)
+t = 0
 
-        f.write(f"{t},{temperature:.2f},{humidity:.2f}\n")
-        print(f"Logged: {temperature:.2f} C, {humidity:.2f} %")
+while True:
+    temperature = random.uniform(23, 27)
+    humidity = random.uniform(55, 65)
 
-        time.sleep(0.5)
+    message = f"{t},{temperature:.2f},{humidity:.2f}"
+    client.publish("sensor/data", message)
+
+    print("Sent:", message)
+
+    t += 1
+    time.sleep(1)

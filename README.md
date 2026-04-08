@@ -1,87 +1,102 @@
-# 📊 Sensor Data Logger & Visualization
+# 📊 Sensor Data Logger & Visualization (Python)
 
-## 📌 Overview
+## 🚀 Overview
 
-This project simulates sensor data, logs it into a file, and visualizes the data using Python.
-It is useful for understanding real-time data acquisition and analysis.
+This project simulates real-time sensor data (temperature and humidity), logs the data into a file, and visualizes it using a single graph.
+
+It demonstrates a simple end-to-end data pipeline:
+
+* Data Generation
+* Data Logging
+* Data Visualization
 
 ---
 
-## ⚙️ Features
+## 🧠 Features
 
-* Sensor data simulation
-* Logging data into a `.log` file
-* Data visualization using graphs
-* Simple and modular Python implementation
+* 🌡️ Simulates temperature data with random variation
+* 💧 Simulates humidity data with random variation
+* 📝 Logs data into a `.log` file
+* 📊 Plots both temperature and humidity on a **single graph**
+* ⏱️ Time-based data tracking
+
+---
+
+## 🛠️ Technologies Used
+
+* Python
+* Matplotlib
+* File Handling
 
 ---
 
 ## 📂 Project Structure
 
-* `sensor_simulator.py` → Simulates sensor data
-* `sensor.log` → Stores logged sensor data
-* `plot_data.py` → Reads log file and plots graphs
-* `.vscode/` → VS Code settings
+```
+sensor_logger/
+│── sensor_simulator.py   # Generates and logs sensor data
+│── plot_data.py          # Reads log file and plots graph
+│── sensor.log            # Generated data file
+│── README.md
+```
 
 ---
 
-## 🧠 Concepts Used
+## ▶️ How to Run
 
-* File Handling in Python
-* Data Logging
-* Data Visualization
-* Simulation of Real-world Sensors
+### 1️⃣ Run the simulator
+
+```
+py sensor_simulator.py
+```
+
+This will generate sensor data and store it in `sensor.log`.
 
 ---
 
-## 🚀 How to Run
+### 2️⃣ Plot the data
 
-1. Run the sensor simulator:
+```
+py plot_data.py
+```
 
-   ```bash
-   python sensor_simulator.py
-   ```
+This will display a graph with:
 
-2. This will generate data in:
-
-   ```
-   sensor.log
-   ```
-
-3. Visualize the data:
-
-   ```bash
-   python plot_data.py
-   ```
+* Temperature (°C)
+* Humidity (%)
 
 ---
 
 ## 📊 Output
 
-* Logged sensor values in `sensor.log`
-* Graphical representation of sensor data
+The output is a **single graph** showing both:
+
+* Temperature variation over time
+* Humidity variation over time
 
 ---
 
-## 🎯 Applications
+## 💡 Example Use Cases
 
-* IoT projects
-* Embedded systems data logging
-* Real-time monitoring systems
-* Academic mini projects
+* IoT data simulation
+* Sensor data analysis
+* Basic data visualization projects
+* Learning file handling and plotting in Python
+
+---
+
+## 🔮 Future Improvements
+
+* Real-time plotting
+* Threshold-based alerts
+* GUI dashboard (Streamlit)
+* Integration with actual sensors
 
 ---
 
 ## 👩‍💻 Author
 
-Varshini Endrakanti
-B.Tech ECE
+Varshini
+B.Tech ECE Student
 
 ---
-
-## ⭐ Future Improvements
-
-* Real sensor integration (Arduino / ESP32)
-* Live plotting (real-time graph)
-* GUI dashboard (Tkinter / Streamlit)
-* Cloud data storage
